@@ -5,13 +5,285 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Talleres – Sentiverso</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .talleres-banner {
+      position: relative;
+      background-image: url('img/taller_banner.png');
+      background-size: auto;
+      background-position: center; 
+      background-repeat: repeat;
+      width: 100%;
+      height: 300px;
+      color: white; 
+      text-align: center; 
+    }
+
+    .talleres-banner .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.6);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .talleres-banner .overlay h1 {
+      font-size: 4rem;
+      color: #1a1a2e;
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+
+    .talleres-banner .overlay p {
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    /* Carrusel */
+    .talleres {
+      padding: 3rem 1rem;
+      background: #f9f9f9;
+      overflow: hidden;
+      display: flex;
+      justify-content: center; /* centra el carrusel dentro de la sección */
+    }
+
+    .carousel-container {
+      display: flex;
+      gap: 2rem;
+      animation: scroll 25s linear infinite;
+      width: 80%;              /* ocupa el 80% */
+      margin: 0 auto;          /* lo centra */
+      justify-content: center; /* cards alineadas al centro */
+    }
+
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .card {
+      flex: 0 0 450px;
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      overflow: hidden;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1.5rem;
+    }
+
+    .card-content h3 {
+      font-size: 1.6rem;
+      color: #1a1a2e;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-content p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    .card-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      color: #1a1a2e;
+      font-size: 0.95rem;
+    }
+
+    .card-footer span i {
+      margin-right: 0.4rem;
+      color: #1a1a2e;
+    }
+
+    .rating {
+      color: #FFD700;
+      font-size: 1rem;
+    }
+
+    .btn-vermas {
+      margin-top: 1rem;
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      background: #1a1a2e;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      transition: background 0.3s ease;
+      text-align: center;
+    }
+    .btn-vermas:hover {
+      background: #333;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .carousel-container {
+        animation: none; /* en móvil scroll manual */
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+      }
+      .card {
+        flex: 0 0 80%;
+        scroll-snap-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <div id="navbar-container"></div>
   <script src="js/navbar.js"></script>
   
-  <main><h1>Talleres</h1></main>
+  <section class="talleres-banner">
+    <div class="overlay">
+      <h1> Nuestros Talleres</h1>
+      <p>Un universo donde sentir nos une.<br>Descubre talleres y experiencias pensadas para conectar contigo.</p>
+    </div>
+  </section>
+
+  <section class="talleres">
+    <div class="carousel-container">
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="img/banner1.jpg" alt="Taller 1">
+        <div class="card-content">
+          <h3><i class="fas fa-brain"></i> Mindfulness</h3>
+          <p>Aprende a conectar con el presente a través de técnicas simples de atención plena.</p>
+          <div class="card-footer">
+            <span><i class="fas fa-user"></i> Autor: Ana López</span>
+            <span><i class="fas fa-clock"></i> Duración: 2h</span>
+            <div class="rating">
+              ★★★★☆
+            </div>
+            <a href="#" class="btn-vermas">Ver más</a>
+          </div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="card">
+        <img src="img/banner1.jpg" alt="Taller 2">
+        <div class="card-content">
+          <h3><i class="fas fa-paint-brush"></i> Arte Terapia</h3>
+          <p>Explora tus emociones a través del arte y la creatividad en un espacio seguro.</p>
+          <div class="card-footer">
+            <span><i class="fas fa-user"></i> Autor: Carlos Pérez</span>
+            <span><i class="fas fa-clock"></i> Duración: 3h</span>
+            <div class="rating">
+              ★★★★★
+            </div>
+            <a href="#" class="btn-vermas">Ver más</a>
+          </div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="card">
+        <img src="img/banner1.jpg" alt="Taller 3">
+        <div class="card-content">
+          <h3><i class="fas fa-music"></i> Musicoterapia</h3>
+          <p>Descubre cómo la música puede ayudarte a sanar y liberar emociones.</p>
+          <div class="card-footer">
+            <span><i class="fas fa-user"></i> Autor: Laura Gómez</span>
+            <span><i class="fas fa-clock"></i> Duración: 1.5h</span>
+            <div class="rating">
+              ★★★★☆
+            </div>
+            <a href="#" class="btn-vermas">Ver más</a>
+          </div>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="card">
+        <img src="img/banner1.jpg" alt="Taller 4">
+        <div class="card-content">
+          <h3><i class="fas fa-seedling"></i> Conexión con la Naturaleza</h3>
+          <p>Un taller para reconectar con la tierra, respirar y soltar el estrés del día a día.</p>
+          <div class="card-footer">
+            <span><i class="fas fa-user"></i> Autor: Sofía Ramírez</span>
+            <span><i class="fas fa-clock"></i> Duración: 4h</span>
+            <div class="rating">
+              ★★★☆☆
+            </div>
+            <a href="#" class="btn-vermas">Ver más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section style="background-color: #1a1a2e; padding: 4rem 1rem;">
+    <div style="max-width:1200px; width: 100%; margin:0 auto; display:flex; gap:2rem; justify-content:center; flex-wrap:wrap;">
+
+      <!-- Card 1 -->
+      <div style="
+        background: rgba(21, 20, 46, 0.2);
+        flex:1 1 45%;
+        min-width:300px;
+        padding:2rem;
+        border-radius:1rem;
+        text-align:center;
+        box-shadow:0 4px 12px rgba(0, 0, 0, 0.452);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      " 
+      onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.3)';"
+      onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)';">
+        <i class="fas fa-graduation-cap" style="font-size:3rem; color:#00E2C5; margin-bottom:1rem;"></i>
+        <h3 style="color:#1a1a2e; margin-bottom:0.5rem;">Aprende con nosotros</h3>
+        <p style="color:#ffffff; margin-bottom:1.5rem;">Descubre talleres diseñados para tu crecimiento personal y profesional.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div style="
+        background: rgba(21, 20, 46, 0.2);
+        flex:1 1 45%;
+        min-width:300px;
+        padding:2rem;
+        border-radius:1rem;
+        text-align:center;
+        box-shadow:0 4px 12px rgba(0, 0, 0, 0.452);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      " 
+      onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.3)';"
+      onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)';">
+        <i class="fas fa-hand-holding-heart" style="font-size:3rem; color:#FFD25D; margin-bottom:1rem;"></i>
+        <h3 style="color:#1a1a2e; margin-bottom:0.5rem;">Conecta y crece</h3>
+        <p style="color:#ffffff; margin-bottom:1.5rem;">Vive experiencias únicas que te ayudarán a reconectar contigo y con los demás.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <style>
+    /* Responsive: en pantallas pequeñas las cards se apilan */
+    @media (max-width: 768px) {
+      section div[style*="flex:1 1 45%"] {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+
+
+
   <script src="js/footer.js"></script>
 </body>
 </html>
