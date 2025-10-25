@@ -156,6 +156,40 @@
       line-height: 1.4;
     }
 
+
+    .card_conceptos {
+      flex: 0 0 280px;
+      background: linear-gradient(145deg, #ffe0e0, #c0ffda);
+      border-radius: 20px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      scroll-snap-align: start;
+    }
+
+    .card_conceptos:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    }
+
+    .card_conceptos .icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .card_conceptos h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .card_conceptos p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.4;
+    }
+
     /* ===== Instructores scroll horizontal ===== */
     .instructores {
       text-align: center;
@@ -259,7 +293,14 @@
   <section class="bienvenida">
     <div class="contenedor-bienvenida">
       <div class="video-container">
-        <iframe width="100%" height="315" src="https://www.youtube.com/embed/YOUTUBE_ID" title="Video de bienvenida" frameborder="0" allowfullscreen></iframe>
+        <iframe 
+          width="100%" 
+          height="315" 
+          src="https://www.youtube.com/embed/31ZvGZCNHw8" 
+          title="Video de bienvenida" 
+          frameborder="0" 
+          allowfullscreen>
+        </iframe>
       </div>
       <div class="texto-bienvenida">
         <h2>¿Qué es el Sentiverso?</h2>
@@ -276,12 +317,27 @@
   <!-- ===== Competencias ===== -->
   <section class="competencias">
     <h2>Competencias Emocionales</h2>
+    <p>
+      Las competencias emocionales se entienden como el conjunto de saberes, destrezas, habilidades y actitudes que permiten reconocer, entender, expresar y manejar adecuadamente las emociones (Bisquerra, 2016).
+    </p>
     <div class="slider-container">
-      <div class="card"><div class="icon">💡</div><h3>Conciencia Emocional</h3><p>Reconocer y comprender las propias emociones.</p></div>
-      <div class="card"><div class="icon">🎯</div><h3>Regulación</h3><p>Gestionar emociones de manera saludable y efectiva.</p></div>
-      <div class="card"><div class="icon">🧠</div><h3>Autonomía</h3><p>Tomar decisiones conscientes desde el bienestar interior.</p></div>
+      <div class="card"><div class="icon">💡</div><h3>Conciencia Emocional</h3><p>Significa darnos cuenta de lo que sentimos y entender cómo se sienten las otras personas. En esta competencia, se designan las emociones, es decir se nombran, se toma conciencia de las propias emociones y se comprenden las emociones de los demás. (Bisquerra,2007)</p></div>
+      <div class="card"><div class="icon">🎯</div><h3>Regulación Emocional</h3><p>Es saber controlar nuestras emociones para reaccionar de forma tranquila y adecuada ante las situaciones. Implica expresar de manera adecuada las emociones, regularlas, contar con habilidades de afrontamiento y competencias para generar emociones positivas (Bisquerra, 2007).</p></div>
+      <div class="card"><div class="icon">🧠</div><h3>Autonomía Emocional</h3><p>es tener confianza en uno mismo y saber manejar las propias emociones sin depender de los demás. Para ello se requiere fortalecer la autoestima, actitud positiva ante la vida, responsabilidad, capacidad para analizar críticamente las normas </p></div>
       <div class="card"><div class="icon">🤝</div><h3>Conciencia Social</h3><p>Empatía y entendimiento hacia los demás.</p></div>
       <div class="card"><div class="icon">🌱</div><h3>Habilidades para la vida</h3><p>Fomentar relaciones, cuidado personal y convivencia.</p></div>
+    </div>
+  </section>
+
+  <!-- ===== Conceptos Clave ===== -->
+  <section class="competencias">
+    <h2>Conceptos Clave</h2>
+    <p>
+      Las competencias emocionales se entienden como el conjunto de saberes, destrezas, habilidades y actitudes que permiten reconocer, entender, expresar y manejar adecuadamente las emociones (Bisquerra, 2016).
+    </p>
+    <div class="slider-container">
+      <div class="card_conceptos"><div class="icon">💡</div><h3>Inclusion</h3><p>La educación inclusiva valora y acoge la diversidad cultural, étnica, sexual y religiosa, promoviendo la no discriminación y la creación de currículos que garanticen el aprendizaje de todos en un ambiente democrático (Arcos, 2022). </p></div>
+      <div class="card_conceptos"><div class="icon">🎯</div><h3>Diversidad</h3><p>Se debe concebir como aquella fuente inagotable de riqueza y una oportunidad invaluable de aprendizaje mutuo y colectivo, por lo que reconoce el valor intrínseco de cada persona, con sus singularidades, talentos y desafíos (Castro, 2012).</p></div>
     </div>
   </section>
 
