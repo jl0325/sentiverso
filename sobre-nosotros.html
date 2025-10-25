@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sobre Nosotros – Sentiverso</title>
+  <title>Fases – Sentiverso</title>
   <link rel="stylesheet" href="css/style.css">
   <style>
     /* GENERAL */
@@ -24,13 +24,14 @@
       padding: 2rem 1rem;
       max-width: 1200px;
       margin: 0 auto;
+      text-align: center; /* centra todo el contenido */
     }
 
     /* HERO */
     .hero {
       text-align: center;
       padding: 6rem 2rem;
-      background: #e3f2fd; /* fondo suave azul */
+      background: #e3f2fd;
       border-radius: 15px;
       margin-bottom: 4rem;
       box-shadow: 0 5px 20px rgba(0,0,0,0.1);
@@ -47,88 +48,32 @@
       color: #555;
     }
 
-    /* MISION Y VISION */
-    .mission-vision {
+    /* IMÁGENES ESTRATEGIAS */
+    .estrategias-imagenes {
       display: flex;
+      flex-direction: column; /* una debajo de la otra */
+      align-items: center;
       gap: 2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 4rem;
-    }
-
-    .card {
-      background: #ffffff;
-      padding: 2rem;
-      border-radius: 15px;
-      flex: 1 1 300px;
-      max-width: 350px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      color: #333;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
-
-    /* VALORES */
-    .values {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .values h2 {
-      color: #1976d2;
-    }
-
-    .values-container {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
       margin-top: 2rem;
     }
 
-    .value-card {
-      background: #ffffff;
-      padding: 1.8rem;
+    .estrategias-imagenes img {
+      width: 80%; /* ocupa el 80% de la pantalla */
+      max-width: 800px; /* opcional: evita que sea demasiado grande en pantallas grandes */
       border-radius: 15px;
-      flex: 1 1 250px;
-      max-width: 300px;
-      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      color: #333;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
 
-    .value-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    .estrategias-imagenes img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     }
 
     /* RESPONSIVE */
-    @media (max-width: 1024px) {
-      .mission-vision, .values-container {
-        justify-content: space-around;
-      }
-    }
-
     @media (max-width: 768px) {
-      .mission-vision, .values-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .hero-title {
-        font-size: 2.5rem;
-      }
-
-      .hero-subtitle {
-        font-size: 1.2rem;
+      .estrategias-imagenes img {
+        width: 90%; /* aún más ajustadas en móviles */
       }
     }
   </style>
@@ -139,41 +84,13 @@
 
   <main class="about-page">
     <!-- Hero Section -->
-    <section class="hero">
-      <h1 class="hero-title">Bienvenidos a Sentiverso</h1>
-      <p class="hero-subtitle">Tu plataforma para explorar y aprender en el mundo digital</p>
-    </section>
+    <h2>Estrategias Didácticas</h2>
 
-    <!-- Misión y Visión -->
-    <section class="mission-vision">
-      <div class="card mission">
-        <h2>Misión</h2>
-        <p>En Sentiverso buscamos conectar personas con el conocimiento digital a través de herramientas innovadoras, experiencias interactivas y una comunidad colaborativa.</p>
-      </div>
-      <div class="card vision">
-        <h2>Visión</h2>
-        <p>Ser líderes en educación digital, fomentando creatividad y aprendizaje continuo en cada usuario que explore nuestro universo.</p>
-      </div>
-    </section>
-
-    <!-- Valores -->
-    <section class="values">
-      <h2>Nuestros Valores</h2>
-      <div class="values-container">
-        <div class="value-card">
-          <h3>Innovación</h3>
-          <p>Buscamos siempre nuevas formas de enseñar y aprender, usando tecnología de punta.</p>
-        </div>
-        <div class="value-card">
-          <h3>Comunidad</h3>
-          <p>Creemos en el poder de la colaboración y el apoyo mutuo entre nuestros usuarios.</p>
-        </div>
-        <div class="value-card">
-          <h3>Transparencia</h3>
-          <p>La honestidad y claridad son la base de todas nuestras acciones.</p>
-        </div>
-      </div>
-    </section>
+    <!-- Imágenes de estrategias -->
+    <div class="estrategias-imagenes">
+      <img src="img/fase_sentiverso.png" alt="Estrategia didáctica 1">
+      <img src="img/presentacion_sentiverso.png" alt="Estrategia didáctica 2">
+    </div>
   </main>
 
   <script src="js/footer.js"></script>

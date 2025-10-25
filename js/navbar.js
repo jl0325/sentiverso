@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <a href="talleres.html">Talleres</a>
         <a href="experiencias.html">Experiencias</a>
         <a href="contactenos.html">Contáctenos</a>
-        <a href="sobre-nosotros.html">Sobre Nosotros</a>
+        <a href="sobre-nosotros.html">Fases</a>
       </nav>
       <div class="hamburger" id="hamburger">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
