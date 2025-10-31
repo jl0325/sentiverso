@@ -6,17 +6,18 @@
   <title>Talleres – Sentiverso</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
     .talleres-banner {
       position: relative;
       background-image: url('img/taller_banner.png');
       background-size: auto;
-      background-position: center; 
+      background-position: center;
       background-repeat: repeat;
       width: 100%;
       height: 300px;
-      color: white; 
-      text-align: center; 
+      color: white;
+      text-align: center;
     }
 
     .talleres-banner .overlay {
@@ -45,22 +46,27 @@
       color: #333;
     }
 
-    /* Carrusel */
+    /* Carrusel optimizado */
     .talleres {
       padding: 3rem 1rem;
       background: #f9f9f9;
       overflow: hidden;
       display: flex;
-      justify-content: center; /* centra el carrusel dentro de la sección */
+      justify-content: center;
     }
 
     .carousel-container {
       display: flex;
       gap: 2rem;
+      width: 80%;
+      margin: 0 auto;
+      justify-content: center;
       animation: scroll 25s linear infinite;
-      width: 80%;              /* ocupa el 80% */
-      margin: 0 auto;          /* lo centra */
-      justify-content: center; /* cards alineadas al centro */
+      will-change: transform;
+    }
+
+    .carousel-container:hover {
+      animation-play-state: paused;
     }
 
     @keyframes scroll {
@@ -76,6 +82,7 @@
       transition: transform 0.3s ease;
       overflow: hidden;
     }
+
     .card:hover {
       transform: translateY(-8px);
     }
@@ -115,11 +122,6 @@
       color: #1a1a2e;
     }
 
-    .rating {
-      color: #FFD700;
-      font-size: 1rem;
-    }
-
     .btn-vermas {
       margin-top: 1rem;
       display: inline-block;
@@ -131,159 +133,196 @@
       transition: background 0.3s ease;
       text-align: center;
     }
+
     .btn-vermas:hover {
       background: #333;
     }
 
-    /* Responsive */
+    /* Responsive carrusel */
+    @media (max-width: 1024px) {
+      .carousel-container { width: 95%; }
+    }
+
     @media (max-width: 768px) {
       .carousel-container {
-        animation: none; /* en móvil scroll manual */
+        animation: none;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
       }
-      .card {
-        flex: 0 0 80%;
-        scroll-snap-align: center;
-      }
+      .carousel-container::-webkit-scrollbar { display: none; }
+      .card { flex: 0 0 85%; scroll-snap-align: center; }
     }
-  </style>
-</head>
-<body>
 
-  <div id="navbar-container"></div>
-  <script src="js/navbar.js"></script>
-  
-  <section class="talleres-banner">
-    <div class="overlay">
-      <h1> Nuestros Talleres</h1>
-      <p>Un universo donde sentir nos une.<br>Descubre talleres y experiencias pensadas para conectar contigo.</p>
-    </div>
-  </section>
-
-  <section class="talleres">
-    <div class="carousel-container">
-      <!-- Card 1 -->
-      <div class="card">
-        <img src="img/banner1.jpg" alt="Taller 1">
-        <div class="card-content">
-          <h3><i class="fas fa-brain"></i> Mindfulness</h3>
-          <p>Aprende a conectar con el presente a través de técnicas simples de atención plena.</p>
-          <div class="card-footer">
-            <span><i class="fas fa-user"></i> Autor: Ana López</span>
-            <span><i class="fas fa-clock"></i> Duración: 2h</span>
-            <div class="rating">
-              ★★★★☆
-            </div>
-            <a href="#" class="btn-vermas">Ver más</a>
-          </div>
-        </div>
-      </div>
-      <!-- Card 2 -->
-      <div class="card">
-        <img src="img/banner1.jpg" alt="Taller 2">
-        <div class="card-content">
-          <h3><i class="fas fa-paint-brush"></i> Arte Terapia</h3>
-          <p>Explora tus emociones a través del arte y la creatividad en un espacio seguro.</p>
-          <div class="card-footer">
-            <span><i class="fas fa-user"></i> Autor: Carlos Pérez</span>
-            <span><i class="fas fa-clock"></i> Duración: 3h</span>
-            <div class="rating">
-              ★★★★★
-            </div>
-            <a href="#" class="btn-vermas">Ver más</a>
-          </div>
-        </div>
-      </div>
-      <!-- Card 3 -->
-      <div class="card">
-        <img src="img/banner1.jpg" alt="Taller 3">
-        <div class="card-content">
-          <h3><i class="fas fa-music"></i> Musicoterapia</h3>
-          <p>Descubre cómo la música puede ayudarte a sanar y liberar emociones.</p>
-          <div class="card-footer">
-            <span><i class="fas fa-user"></i> Autor: Laura Gómez</span>
-            <span><i class="fas fa-clock"></i> Duración: 1.5h</span>
-            <div class="rating">
-              ★★★★☆
-            </div>
-            <a href="#" class="btn-vermas">Ver más</a>
-          </div>
-        </div>
-      </div>
-      <!-- Card 4 -->
-      <div class="card">
-        <img src="img/banner1.jpg" alt="Taller 4">
-        <div class="card-content">
-          <h3><i class="fas fa-seedling"></i> Conexión con la Naturaleza</h3>
-          <p>Un taller para reconectar con la tierra, respirar y soltar el estrés del día a día.</p>
-          <div class="card-footer">
-            <span><i class="fas fa-user"></i> Autor: Sofía Ramírez</span>
-            <span><i class="fas fa-clock"></i> Duración: 4h</span>
-            <div class="rating">
-              ★★★☆☆
-            </div>
-            <a href="#" class="btn-vermas">Ver más</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section style="background-color: #1a1a2e; padding: 4rem 1rem;">
-    <div style="max-width:1200px; width: 100%; margin:0 auto; display:flex; gap:2rem; justify-content:center; flex-wrap:wrap;">
-
-      <!-- Card 1 -->
-      <div style="
-        background: rgba(21, 20, 46, 0.2);
-        flex:1 1 45%;
-        min-width:300px;
-        padding:2rem;
-        border-radius:1rem;
-        text-align:center;
-        box-shadow:0 4px 12px rgba(0, 0, 0, 0.452);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      " 
-      onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.3)';"
-      onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)';">
-        <i class="fas fa-graduation-cap" style="font-size:3rem; color:#00E2C5; margin-bottom:1rem;"></i>
-        <h3 style="color:#1a1a2e; margin-bottom:0.5rem;">Aprende con nosotros</h3>
-        <p style="color:#ffffff; margin-bottom:1.5rem;">Descubre talleres diseñados para tu crecimiento personal y profesional.</p>
-      </div>
-
-      <!-- Card 2 -->
-      <div style="
-        background: rgba(21, 20, 46, 0.2);
-        flex:1 1 45%;
-        min-width:300px;
-        padding:2rem;
-        border-radius:1rem;
-        text-align:center;
-        box-shadow:0 4px 12px rgba(0, 0, 0, 0.452);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      " 
-      onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.3)';"
-      onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)';">
-        <i class="fas fa-hand-holding-heart" style="font-size:3rem; color:#FFD25D; margin-bottom:1rem;"></i>
-        <h3 style="color:#1a1a2e; margin-bottom:0.5rem;">Conecta y crece</h3>
-        <p style="color:#ffffff; margin-bottom:1.5rem;">Vive experiencias únicas que te ayudarán a reconectar contigo y con los demás.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <style>
-    /* Responsive: en pantallas pequeñas las cards se apilan */
+    /* Responsive cards info inferior */
     @media (max-width: 768px) {
       section div[style*="flex:1 1 45%"] {
         flex: 1 1 100%;
       }
     }
   </style>
+</head>
+<body>
 
+<div id="navbar-container"></div>
+<script src="js/navbar.js"></script>
 
+<section class="talleres-banner">
+  <div class="overlay">
+    <h1> Nuestros Talleres</h1>
+    <p>Un universo donde sentir nos une.<br>Descubre talleres y experiencias pensadas para conectar contigo.</p>
+  </div>
+</section>
 
-  <script src="js/footer.js"></script>
+<section class="talleres">
+  <div class="carousel-container">
+
+    <!-- CARDS — duplicadas para loop perfecto -->
+    <!-- CARD 1 -->
+    <div class="card">
+      <img src="img/Fototaller1.jpg" alt="Taller 1">
+      <div class="card-content">
+        <h3><i class="fas fa-brain"></i> Taller Manejo de Emociones</h3>
+        <p>Este taller busca que los niños reconozcan y comprendan sus emociones, aprendiendo a expresarlas y regularlas a través de experiencias lúdicas y colaborativas que fortalecen la empatía, la autoconciencia y la convivencia respetuosa.</p>
+        <div class="card-footer">
+          <span><i class="fas fa-clock"></i> Duración: 90min</span>
+          <a href="https://drive.google.com/file/d/1ELHN5kajJ0aQcJY1oM7HTp-1cn_jXFwy/view?usp=drive_link" class="btn-vermas">Descargar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="card">
+      <img src="img/Fototaller2.jpg" alt="Taller 2">
+      <div class="card-content">
+        <h3><i class="fas fa-paint-brush"></i> Taller Soy Yo, Somos Todos</h3>
+        <p>Este taller busca fortalecer la autoestima, la empatía y el sentido de pertenencia, ayudando a los niños a reconocer sus fortalezas personales, valorar a los demás y construir relaciones basadas en el respeto y el buen trato.</p>
+        <div class="card-footer">
+          <span><i class="fas fa-clock"></i> Duración: 90min</span>
+          <a href="https://drive.google.com/file/d/1xaX1DSBIqtxXSfxFrrEAih6rFV0lbuf1/view?usp=drive_link" class="btn-vermas">Descargar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="card">
+      <img src="img/Fototaller3.png" alt="Taller 3">
+      <div class="card-content">
+        <h3><i class="fas fa-music"></i> Taller Autorregulación, Empatía y Diversidad</h3>
+        <p>Este taller promueve la autorregulación emocional y la empatía, invitando a los niños a reconocer y valorar las diferencias individuales, fortalecer la convivencia y comprometerse con acciones que construyan un ambiente inclusivo y respetuoso.</p>
+        <div class="card-footer">
+          <span><i class="fas fa-clock"></i> Duración: 120min</span>
+          <a href="https://drive.google.com/file/d/17XWXxymEp_WG4lZ24jdOwwBhgyYGcOgN/view?usp=drive_link" class="btn-vermas">Descargar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="card">
+      <img src="img/Fototaller4.png" alt="Taller 4">
+      <div class="card-content">
+        <h3><i class="fas fa-seedling"></i> Taller Cartografía de Mis Emociones</h3>
+        <p>Este taller invita a los niños a reconocer, expresar y representar sus emociones en los diferentes espacios del colegio, promoviendo la reflexión colectiva, la empatía y la construcción de un entorno escolar más consciente y emocionalmente saludable.</p>
+        <div class="card-footer">
+          <span><i class="fas fa-clock"></i> Duración: 60min</span>
+          <a href="https://drive.google.com/file/d/1t9es8BzXw6ya9kxQVlStaIex0O07asEz/view?usp=drive_link" class="btn-vermas">Descargar</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- DUPLICADO para loop infinito -->
+    <!-- Copia exacta de las 4 cards -->
+    <div class="card">
+      <img src="img/Fototaller1.jpg" alt="Taller 1">
+      <div class="card-content">
+        <h3><i class="fas fa-brain"></i> Taller Manejo de Emociones</h3>
+        <p>Este taller busca que los niños reconozcan y comprendan sus emociones, aprendiendo a expresarlas y regularlas a través de experiencias lúdicas y colaborativas que fortalecen la empatía, la autoconciencia y la convivencia respetuosa.</p>
+        <div class="card-footer">
+          <span><i class="fas fa-clock"></i> Duración: 90min</span>
+          <a href="https://drive.google.com/file/d/1ELHN5kajJ0aQcJY1oM7HTp-1cn_jXFwy/view?usp=drive_link" class="btn-vermas">Descargar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="img/Fototaller2.jpg" alt="Taller 2">
+      <div class="card-content">
+        <h3><i class="fas fa-paint-brush"></i> Taller Soy Yo, Somos Todos</h3>
+        <p>Este taller busca fortalecer la autoestima, la empatía y el sentido de pertenencia, ayudando a los niños a reconocer sus fortalezas personales, valorar a los demás y construir relaciones basadas en el respeto y el buen trato.</p>
+        <div class="card-footer">
+          <span><i class="fas fa-clock"></i> Duración: 90min</span>
+          <a href="https://drive.google.com/file/d/1xaX1DSBIqtxXSfxFrrEAih6rFV0lbuf1/view?usp=drive_link" class="btn-vermas">Descargar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="img/Fototaller3.png" alt="Taller 3">
+      <div class="card-content">
+        <h3><i class="fas fa-music"></i> Taller Autorregulación, Empatía y Diversidad</h3>
+        <p>Este taller promueve la autorregulación emocional y la empatía, invitando a los niños a reconocer y valorar las diferencias individuales, fortalecer la convivencia y comprometerse con acciones que construyan un ambiente inclusivo y respetuoso.</p>
+        <div class="card-footer">
+          <span><i class="fas fa-clock"></i> Duración: 120min</span>
+          <a href="https://drive.google.com/file/d/17XWXxymEp_WG4lZ24jdOwwBhgyYGcOgN/view?usp=drive_link" class="btn-vermas">Descargar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="img/Fototaller4.png" alt="Taller 4">
+      <div class="card-content">
+        <h3><i class="fas fa-seedling"></i> Taller Cartografía de Mis Emociones</h3>
+        <p>Este taller invita a los niños a reconocer, expresar y representar sus emociones en los diferentes espacios del colegio, promoviendo la reflexión colectiva, la empatía y la construcción de un entorno escolar más consciente y emocionalmente saludable.</p>
+        <div class="card-footer">
+          <span><i class="fas fa-clock"></i> Duración: 60min</span>
+          <a href="https://drive.google.com/file/d/1t9es8BzXw6ya9kxQVlStaIex0O07asEz/view?usp=drive_link" class="btn-vermas">Descargar</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section style="background-color: #1a1a2e; padding: 4rem 1rem;">
+  <div style="max-width:1200px; width: 100%; margin:0 auto; display:flex; gap:2rem; justify-content:center; flex-wrap:wrap;">
+
+    <div style="
+      background: rgba(21, 20, 46, 0.2);
+      flex:1 1 45%;
+      min-width:300px;
+      padding:2rem;
+      border-radius:1rem;
+      text-align:center;
+      box-shadow:0 4px 12px rgba(0, 0, 0, 0.452);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    "
+    onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.3)';"
+    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)';">
+      <i class="fas fa-graduation-cap" style="font-size:3rem; color:#00E2C5; margin-bottom:1rem;"></i>
+      <h3 style="color:#1a1a2e; margin-bottom:0.5rem;">Aprende con nosotros</h3>
+      <p style="color:#ffffff; margin-bottom:1.5rem;">Descubre talleres diseñados para tu crecimiento personal y profesional.</p>
+    </div>
+
+    <div style="
+      background: rgba(21, 20, 46, 0.2);
+      flex:1 1 45%;
+      min-width:300px;
+      padding:2rem;
+      border-radius:1rem;
+      text-align:center;
+      box-shadow:0 4px 12px rgba(0, 0, 0, 0.452);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    "
+    onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.3)';"
+    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)';">
+      <i class="fas fa-hand-holding-heart" style="font-size:3rem; color:#FFD25D; margin-bottom:1rem;"></i>
+      <h3 style="color:#1a1a2e; margin-bottom:0.5rem;">Conecta y crece</h3>
+      <p style="color:#ffffff; margin-bottom:1.5rem;">Vive experiencias únicas que te ayudarán a reconectar contigo y con los demás.</p>
+    </div>
+
+  </div>
+</section>
+
+<script src="js/footer.js"></script>
 </body>
 </html>
