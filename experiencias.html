@@ -5,13 +5,226 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Experiencias – Sentiverso</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Carousel Styles - Enhanced */
+    .carousel-container {
+      position: relative;
+      max-width: 100%;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .carousel-slide {
+      display: flex;
+      transition: transform 0.9s cubic-bezier(.25,.8,.25,1);
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      filter: brightness(0.9);
+      transition: transform 1s ease, filter 0.5s ease;
+    }
+
+    .carousel-slide img:hover {
+      transform: scale(1.08);
+      filter: brightness(1);
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.55);
+      color: #fff;
+      border: none;
+      padding: 14px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 22px;
+      transition: 0.3s;
+      z-index: 10;
+      backdrop-filter: blur(4px);
+    }
+
+    .carousel-btn:hover {
+      background: rgba(255, 255, 255, 0.8);
+      color: #111;
+      transform: scale(1.2);
+    }
+
+    .prev { left: 15px; }
+    .next { right: 15px; }
+
+    .dots {
+      text-align: center;
+      position: absolute;
+      bottom: 18px;
+      width: 100%;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin: 6px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: 0.3s;
+      backdrop-filter: blur(3px);
+    }
+
+    .dot.active {
+      background: #fff;
+      transform: scale(1.4);
+      box-shadow: 0 0 10px rgba(255,255,255,0.8);
+    }
+  .split-container {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      gap: 40px;
+      padding-top: 20px;
+    }
+
+    .carousel-section, .video-section {
+      width: 100%;
+      min-width: 100%;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      /* Mantener un aspecto 16:9 para videos */
+      padding-bottom: 56.25%; /* 16:9 ratio */
+      height: 0;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+      animation: fadeIn 1s ease-in-out;
+      margin: 30px 0 0 0;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+
+  </style>
 </head>
 <body>
 
   <div id="navbar-container"></div>
   <script src="js/navbar.js"></script>
   
-  <main><h1>Experiencias</h1></main>
+  <main>
+    <h1>Experiencias</h1>
+
+    <div class="split-container">
+
+      <!-- FOTO CARRUSEL -->
+      <div class="carousel-section">
+        <div class="carousel-container">
+          <div class="carousel-slide">
+            <img src="img/IMG1.jpg" alt="Imagen 1">
+            <img src="img/IMG2.jpg" alt="Imagen 2">
+            <img src="img/IMG3.jpg" alt="Imagen 3">
+            <img src="img/IMG4.jpg" alt="Imagen 4">
+            <img src="img/IMG5.jpg" alt="Imagen 5">
+            <img src="img/IMG6.jpg" alt="Imagen 6">
+            <img src="img/IMG7.jpg" alt="Imagen 7">
+            <img src="img/IMG8.jpg" alt="Imagen 8">
+            <img src="img/IMG9.jpeg" alt="Imagen 9">
+          </div>
+          <button class="carousel-btn prev">❮</button>
+          <button class="carousel-btn next">❯</button>
+          <div class="dots"></div>
+        </div>
+      </div>
+    </div>
+    
+      <!-- VIDEO SECTION -->
+      <div class="video-section">
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/31ZvGZCNHw8" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+  </main>
+
+  <script>
+    const slide = document.querySelector('.carousel-slide');
+    const images = document.querySelectorAll('.carousel-slide img');
+    const dotsContainer = document.querySelector('.dots');
+
+    let counter = 0;
+    let autoSlide;
+
+    images.forEach((_, index) => {
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      if (index === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => moveToSlide(index));
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.dot');
+
+    function updateDots() {
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[counter].classList.add('active');
+    }
+
+    function moveToSlide(index) {
+      counter = index;
+      slide.style.transform = `translateX(${-counter * 100}%)`;
+      updateDots();
+      resetAutoplay();
+    }
+
+    function nextSlide() {
+      counter = (counter + 1) % images.length;
+      moveToSlide(counter);
+    }
+
+    function prevSlide() {
+      counter = (counter - 1 + images.length) % images.length;
+      moveToSlide(counter);
+    }
+
+    document.querySelector('.next').addEventListener('click', nextSlide);
+    document.querySelector('.prev').addEventListener('click', prevSlide);
+
+    function startAutoplay() {
+      autoSlide = setInterval(nextSlide, 4500);
+    }
+
+    function resetAutoplay() {
+      clearInterval(autoSlide);
+      startAutoplay();
+    }
+
+    startAutoplay();
+  </script>
+
   <script src="js/footer.js"></script>
 </body>
 </html>
